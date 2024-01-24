@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Services\DoriService;
+use App\Services\DoritypeService;
+use App\Services\ProductTypeService;
 use Illuminate\Http\Request;
 
-class DoriController extends Controller
+class ProductTypeController extends Controller
 {
-    public function __construct(protected DoriService $service)
+    public function __construct(protected ProductTypeService $service)
     {
         
     }

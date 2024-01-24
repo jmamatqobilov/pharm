@@ -11,14 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('partiyaouts', function (Blueprint $table) {
+        Schema::create('parties', function (Blueprint $table) {
             $table->id();
-            $table->integer('amount');
-            $table->string('apteka_id');
-            $table->string('dori_id');
-            $table->string('werhouse_id');
-            $table->string('created_by');
-            $table->integer('price');
+            $table->foreignId('product_id');
+            $table->foreignId('warehouse_id');
+            $table->foreignId('apteka_id');
+            $table->integer('quantity');
+            $table->bigInteger('price');
             $table->timestamps();
         });
     }
@@ -28,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('partiyaouts');
+        Schema::dropIfExists('parties');
     }
 };

@@ -14,27 +14,27 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-        $owner = User::create([
+        User::create([
             'name' => 'Javed Ur Rehman', 
-            'email' => 'javed@allphptricks.com',
+            'email' => 'javed@email.com',
             'password' => Hash::make('javed1234')
         ]);
-        $owner->assignRole('owner');
+        
 
         // Creating Admin User
-        $admin = User::create([
+        User::create([
             'name' => 'Syed Ahsan Kamal', 
-            'email' => 'ahsan@allphptricks.com',
+            'email' => 'ahsan@yandex.com',
             'password' => Hash::make('ahsan1234')
         ]);
-        $admin->assignRole('admin');
+        
 
         // Creating ManagerUser
-        $manager = User::create([
+        User::create([
             'name' => 'Abdul Muqeet', 
-            'email' => 'muqeet@allphptricks.com',
+            'email' => 'muqeet@hamil.com',
             'password' => Hash::make('muqeet1234')
         ]);
-        $manager->assignRole('manager');
+        
     }
 }

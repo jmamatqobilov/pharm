@@ -5,16 +5,24 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Warehouse extends Model
+class Product extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'name'
+        'name',
+        'product_type',
+        'price'
     ];
 
+
+    public function producttype(){
+        return $this->belongsTo(ProductType::class);
+    }
 
     public function partys(){
         return $this->hasMany(Party::class);
     }
+
+    
 }

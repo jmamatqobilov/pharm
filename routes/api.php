@@ -17,3 +17,27 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+Route::group(['middleware' => ['role:super-admin','permission:publish articles']], function () {
+    //
+});
+
+Route::get('/', function(){
+    //
+  })->middleware(['can:edit articles']);
+
+  Route::group(['middleware' => ['role:super-admin|writer']], function () {
+    //
+});
+
+Route::group(['middleware' => ['permission:publish articles|edit articles']], function () {
+    //
+});
+
+
+
+// Route::get('index',function(){
+//     return ['message'=>'ok'];
+// })->middleware('test_middleware:test uchun middleware');
+

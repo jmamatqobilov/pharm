@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Doritype extends Model
+class ProductType extends Model
 {
     use HasFactory;
 
@@ -13,7 +13,7 @@ class Doritype extends Model
         'name'
     ];
 
-    public function dories(){
-        return $this->hasMany(Dori::class);
+    public function products(){
+        return $this->hasMany(Product::class);
     }
 }
