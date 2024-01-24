@@ -14,21 +14,17 @@ class Apteka extends Model
         'region_id',
         'name',
         'address',
-        'respon_person',
-        'respon_person_phone',
-        'created_by',
-        'updated_by'
+        'employe_apteka',
+        'employe_phone',
     ];
 
     public function region(){
         return $this->belongsTo(Region::class);
     }
 
-    public function partiyabrakes(){
-        return $this->hasMany(Partiyabrak::class);
+    public function partys(){
+        return $this->hasMany(Party::class);
     }
 
-    public function partiyaoutes(){
-        return $this->hasMany(Partiyaout::class);
-    }
+    
 }

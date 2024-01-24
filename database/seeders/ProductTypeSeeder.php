@@ -22,5 +22,8 @@ class ProductTypeSeeder extends Seeder
         ProductType::create([
             'name' => 'tabletka',
         ]);
+        ProductType::create([
+            'name' => 'ukol',
+        ]);
     }
 }

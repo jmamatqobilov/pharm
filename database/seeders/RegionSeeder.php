@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Region;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -12,6 +13,23 @@ class RegionSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        Region::create([
+            'name' => 'Chilonzor', 
+        ]);
+        Region::create([
+            'name' => 'Yunusobot', 
+        ]);
+        Region::create([
+            'name' => 'Yakkasaroy', 
+        ]);
+        Region::create([
+            'name' => 'Yashnaobot', 
+        ]);
+        Region::create([
+            'name' => 'Sergeli', 
+        ]);
+        Region::create([
+            'name' => 'Uchtepa', 
+        ]);
     }
 }
