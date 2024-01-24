@@ -2,22 +2,33 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\PartiyService;
 use App\Services\WarehouseService;
 use Illuminate\Http\Request;
 
 class WarehouseController extends Controller
 {
-    public function __construct(protected WarehouseService $service)
+    public function __construct(
+        protected WarehouseService $service,
+        protected PartiyService $partiyService)
     {
         
     }
 
+    public function productout(Request $request,$id){
+        return $this->partiyService->update($request,$id);
+    }
 
-    public function all(){
+
+    public function index(){
         return $this->service->getList();
     }
 
-    public function create(Request $request){
+    public function show($id){
+        return $this->service->getById($id);
+    }
+
+    public function store(Request $request){
         return $this->service->create($request->all());
     }
 
@@ -25,7 +36,10 @@ class WarehouseController extends Controller
         return $this->service->update($request,$id);
     }
 
-    public function delete($id){
+    public function destroy($id){
         return $this->service->delete($id);
     }
+
+
+
 }

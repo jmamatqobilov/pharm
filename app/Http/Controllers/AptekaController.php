@@ -16,11 +16,15 @@ class AptekaController extends Controller
     }
 
 
-    public function all(){
+    public function index(){
         return $this->service->getList();
     }
 
-    public function create(Request $request){
+    public function show($id){
+        return $this->service->getById($id);
+    }
+
+    public function store(Request $request){
         return $this->service->create($request->all());
     }
 
@@ -28,7 +32,7 @@ class AptekaController extends Controller
         return $this->service->update($request,$id);
     }
 
-    public function delete($id){
+    public function destroy($id){
         return $this->service->delete($id);
     }
 }

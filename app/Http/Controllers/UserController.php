@@ -49,8 +49,8 @@ class UserController extends Controller
 
     public function index(Request $request)
     {
-        $data = User::latest()->paginate(5);
-        return view('users.index',compact('data'));
+        $data = User::get();
+        return response()->json(['users'=>$data]);
     }
 
     public function create()
@@ -65,7 +65,6 @@ class UserController extends Controller
             'name' => 'required',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|same:confirm-password',
-            'roles' => 'required'
         ]);
     
         $input = $request->all();
@@ -74,14 +73,13 @@ class UserController extends Controller
         $user = User::create($input);
         $user->assignRole($request->input('roles'));
     
-        return redirect()->route('users.index')
-                        ->with('success','User created successfully');
+        return response()->json(['succuses']);
     }
     
     public function show($id)
     {
         $user = User::find($id);
-        return view('users.show',compact('user'));
+        return response()->json(['user'=>$user]);
     }
     
     public function edit($id)

@@ -16,7 +16,6 @@ class Party extends Model
         'quantity',
         'price',
         'status',
-        
     ];
 
     public function product(){

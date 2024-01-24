@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreignId('warehouse_id');
             $table->foreignId('apteka_id');
             $table->integer('quantity');
+            $table->integer('status');
             $table->bigInteger('price');
             $table->timestamps();
         });
