@@ -2,14 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\RoleResource;
 use Illuminate\Http\Request;
 
 use App\Models\User;
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
+
+    function __construct()
+    {
+        $this->middleware("auth:sanctum");
+    }
     /**
      * @param Request $request
      * @response array{"firstname":"","lastname":"","phone":"","password":""}
@@ -50,7 +56,7 @@ class AuthController extends Controller
             'password' => 'required|string'
         ]);
 
-        $user = User::where('name', $data['name'])->first();
+        $user = User::where('email', $data['email'])->first();
 
          if (!$user || !Hash::check($data['password'], $user->password)) {
             return response([
@@ -66,5 +72,13 @@ class AuthController extends Controller
         ];
 
         return response($res, 201);
+    }
+
+
+    public function roles(){
+
+        $user = Auth::user();
+        
+        return RoleResource::collection($user->roles);
     }
 }

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AptekaController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\MeetingController;
 use App\Http\Controllers\PartyController;
@@ -43,7 +44,10 @@ Route::resources([
     'roles' => RoleController::class,
 ]);
 
-Route::get('permissions',[RoleController::class,'getpermissions']);
+Route::post('login', [AuthController::class, 'login']);
+Route::get('role', [AuthController::class, 'roles']);
+
+Route::get('permission',[RoleController::class,'getpermissions']);
 
 
 
