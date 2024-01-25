@@ -63,14 +63,15 @@ class  BaseService
         return response()->json($this->resourceWith(data: $data, isList: true), 200);
     }  
 
-    public function update($id, $data){
+    public function update($data,$id){
         try {
             $model = $this->getById($id);
             if(!$model) {
                 return response()->json(['message' => "Not found"], 404);
             }
-            $modeldata = $model->update($data);
-            return response()->json($modeldata, 200);
+            $model->update($data);
+            
+            return response()->json($model, 200);
         } catch (\Throwable $th) {
             return response()->json(['message' => $th->getMessage()], 501);
         }

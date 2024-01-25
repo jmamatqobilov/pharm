@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->foreignId('product_id');
             $table->foreignId('warehouse_id');
-            $table->foreignId('producttype_id');
             $table->foreignId('apteka_id')->nullable()->default(null);
             $table->integer('quantity');
             $table->integer('status')->nullable()->default(10);

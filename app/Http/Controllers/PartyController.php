@@ -23,7 +23,7 @@ class PartyController extends Controller
     }
 
     public function update(Request $request,$id){
-        return $this->service->update($request,$id);
+        return $this->service->update($request->all(),$id);
     }
 
     public function destroy($id){

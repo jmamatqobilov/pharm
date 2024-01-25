@@ -18,10 +18,10 @@ class RoleController extends Controller
      */
     function __construct()
     {
-         $this->middleware('permission:role-list|role-create|role-edit|role-delete', ['only' => ['index','store']]);
-         $this->middleware('permission:role-create', ['only' => ['create','store']]);
-         $this->middleware('permission:role-edit', ['only' => ['edit','update']]);
-         $this->middleware('permission:role-delete', ['only' => ['destroy']]);
+        //  $this->middleware('permission:role-list|role-create|role-edit|role-delete', ['only' => ['index','store']]);
+        //  $this->middleware('permission:role-create', ['only' => ['create','store']]);
+        //  $this->middleware('permission:role-edit', ['only' => ['edit','update']]);
+        //  $this->middleware('permission:role-delete', ['only' => ['destroy']]);   
     }
     
     /**
@@ -31,7 +31,8 @@ class RoleController extends Controller
      */
     public function index(Request $request)
     {
-        $roles = Role::select()->orderBy('id,DESC')->get();
+        $roles = Role::get();
+        dd($roles);
         return response()->json([
             'data'=>$roles
         ]);

@@ -28,17 +28,7 @@ Route::middleware('auth:sanctum')->get('/', function (Request $request) {
     return [];
 });
 
-Route::resource('users', 'UserController');
-Route::resource('aptekas', 'AptekaController');
-Route::resource('warehouses', 'WarehouseController');
-Route::resource('doctor', 'DoctorController');
-Route::resource('meetings', 'MeetingController');
-Route::resource('producttypes', 'ProductTypeController');
-Route::resource('regions', 'RegionController');
-Route::resource('products', 'ProductController');
-Route::resource('parties', 'PartyController');
-Route::resource('permission', 'PermissionController');
-Route::resource('roles', 'RoleController');
+
 
 Route::resources([
     'users' => UserController::class,
@@ -50,9 +40,11 @@ Route::resources([
     'regions' => RegionController::class,
     'products' => ProductController::class,
     'parties' => PartyController::class,
-    'permission' => RoleController::class,
     'roles' => RoleController::class,
 ]);
+
+Route::get('permissions',[RoleController::class,'getpermissions']);
+
 
 
 

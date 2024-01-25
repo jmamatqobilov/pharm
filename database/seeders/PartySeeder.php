@@ -14,11 +14,17 @@ class PartySeeder extends Seeder
     public function run(): void
     {
         Party::create([
-            'product_id' => 1, 
-            'producttype_id' => 3,
+            'product_id' => 1,
             'quantity'=>500,
             'warehouse_id'=>1,
             'status'=>10,
+            'price' => 1200
+        ]);
+
+        Party::create([
+            'product_id' => 2,
+            'quantity'=>1000,
+            'warehouse_id'=>1,
             'price' => 1200
         ]);
     }
