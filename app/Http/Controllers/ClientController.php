@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Services\AptekaService;
+
+use App\Services\ClientService;
 use Illuminate\Http\Request;
 
-class AptekaController extends Controller
+class ClientController extends Controller
 {
-    public function __construct(protected AptekaService $service)
+    public function __construct(protected ClientService $service)
     {
         $this->middleware('permission:create-product|edit-product|delete-product', ['only' => ['index','show']]);
         $this->middleware('permission:create-product', ['only' => ['create','store']]);

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AptekaController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ClientController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\MeetingController;
 use App\Http\Controllers\PartyController;
@@ -33,7 +34,7 @@ Route::middleware('auth:sanctum')->get('/', function (Request $request) {
 
 Route::resources([
     'users' => UserController::class,
-    'aptekas' => AptekaController::class,
+    'clients' => ClientController::class,
     'warehouses' => WarehouseController::class,
     'doctors' => DoctorController::class,
     'meetings' => MeetingController::class,
